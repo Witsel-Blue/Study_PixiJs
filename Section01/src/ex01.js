@@ -13,6 +13,5 @@ export default async function main() {
     });
 
     app.canvas.id = 'app-canvas';
-
     document.body.appendChild(app.canvas);
 };
