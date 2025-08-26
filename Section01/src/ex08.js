@@ -1,4 +1,4 @@
-// Sprite Animation
+// Sound
 
 import { Application, Assets, AnimatedSprite, Texture, Rectangle } from 'pixi.js';
 import './style.css';
@@ -17,35 +17,11 @@ export default async function main() {
     app.canvas.id = 'app-canvas';
     document.body.appendChild(app.canvas);
 
+    // Sound
+    const swordSound = new Audio('./sounds/sword.mp3');
+
     // Sprite Animation
     const texture = await Assets.load('./images/Attack_1.png');
-    // const frames = [
-    //     // 6 frames, 768 x 128
-    //     new Texture({
-    //         source: texture,
-    //         frame: new Rectangle(0, 0, 128, 128),
-    //     }),
-    //     new Texture({
-    //         source: texture,
-    //         frame: new Rectangle(128, 0, 128, 128),
-    //     }),
-    //     new Texture({
-    //         source: texture,
-    //         frame: new Rectangle(256, 0, 128, 128),
-    //     }),
-    //     new Texture({
-    //         source: texture,
-    //         frame: new Rectangle(384, 0, 128, 128),
-    //     }),
-    //     new Texture({
-    //         source: texture,
-    //         frame: new Rectangle(512, 0, 128, 128),
-    //     }),
-    //     new Texture({
-    //         source: texture,
-    //         frame: new Rectangle(640, 0, 128, 128),
-    //     }),
-    // ];
     const frames = [];
     for (let i = 0; i < 6; i++ ) {
         const frame = new Texture({
@@ -60,16 +36,16 @@ export default async function main() {
 
     Samurai.animationSpeed = 0.2;
     Samurai.loop = false;
-    // Samurai.play();
 
     Samurai.eventMode = 'static';
     Samurai.cursor = 'pointer';
     Samurai.on('pointertap', () => {
-        // Samurai.play();
-        Samurai.gotoAndPlay(0); // 0 프레임부터 플레이
+        Samurai.gotoAndPlay(0);
+        swordSound.currentTime = 0;
+        swordSound.play();
     });
     Samurai.onComplete = () => {
-        Samurai.gotoAndStop(0); // 스탑 후 0 프레임으로
+        Samurai.gotoAndStop(0);
     }
 
 };

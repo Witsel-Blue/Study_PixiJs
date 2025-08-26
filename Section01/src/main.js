@@ -1,3 +1,3 @@
-import main from './ex07.js';
+import main from './ex08.js';
 
 main();
