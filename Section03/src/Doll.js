@@ -1,5 +1,5 @@
 import { Container, Sprite, Texture, Assets, Rectangle } from 'pixi.js';
-
+import dollSprite from '../assets/doll-sprite.png';
 export class Doll extends Container {
     sprite;
     frames = [];
@@ -15,7 +15,7 @@ export class Doll extends Container {
     }
 
     async init() {
-        const texture = await Assets.get('/images/doll-sprite.png');
+        const texture = await Assets.get(dollSprite);
         
         // 프레임 설정 (768x256 이미지를 3개의 프레임으로 분할)
         const frameWidth = 768 / 3;

@@ -19,14 +19,19 @@ button {
 
 /* ----- style ----- */
 body {
-    background-color: #F7F7F7;
+    background-color: transparent;
     overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    min-height: 100vh;
 }
 #app-canvas {
     width: 360px;
-    margin: 30px auto;
+    /* margin: 30px auto; */
     display: block;
-    background: white;
+    background: transparent;
 }
 #game-cover {
     font-family: Arial, sans-serif;

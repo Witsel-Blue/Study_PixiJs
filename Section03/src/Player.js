@@ -1,5 +1,5 @@
 import { Container, Sprite, Texture, Assets, Rectangle } from 'pixi.js';
-
+import playerSprite from '../assets/player-sprite.png';
 export class Player extends Container {
     sprite;
     state = 'running';
@@ -15,7 +15,7 @@ export class Player extends Container {
 
     async init() {
         // 스프라이트 생성
-        const texture = await Assets.get('/images/player-sprite.png');
+        const texture = await Assets.get(playerSprite);
         
         // 프레임 설정 (512x128 이미지를 4개의 프레임으로 분할)
         const frameWidth = 512 / 4;  // 256/4 = 64
